@@ -15,6 +15,6 @@ install:
   - rustup target add wasm32-unknown-unknown
   - npm i -g truffle
 before_script:
-  - cd src/tests && ./build.sh && cd ../.. && ./build.sh
+  - cd src/tests && ./build.sh && cd ../..
 script:
   - cargo test --lib
