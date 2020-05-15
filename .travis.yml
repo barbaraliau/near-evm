@@ -3,15 +3,17 @@ node_js:
   - 12.0
 cache:
     directories:
-        - $TRAVIS_BUILD_DIR/target
+        - ./target
         - /home/travis/.cargo
+before_cache:
+  - rm -rf /home/travis/.cargo/registry
+  - rm -rf ./target/wasm32-unknown-unknown
+  - rm -rf ./target/release
 install:
   - curl https://sh.rustup.rs -sSf | sh -s -- -y
   - export PATH="$HOME/.cargo/bin:$PATH"
-  - rustup target add wasm32-unknown-unknown
   - npm i -g truffle
 before_script:
-  - cargo build --target wasm32-unknown-unknown --release # ./build.sh needs target/wasm32-unknown-unknown/release/near_evm.wasm
   - cd src/tests && ./build.sh && cd ../.. && ./build.sh
 script:
   - cargo test --lib
