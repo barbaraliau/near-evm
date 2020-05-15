@@ -12,6 +12,7 @@ before_cache:
 install:
   - curl https://sh.rustup.rs -sSf | sh -s -- -y
   - export PATH="$HOME/.cargo/bin:$PATH"
+  - rustup target add wasm32-unknown-unknown
   - npm i -g truffle
 before_script:
   - cd src/tests && ./build.sh && cd ../.. && ./build.sh
