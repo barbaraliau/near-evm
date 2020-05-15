@@ -5,8 +5,6 @@ cache:
     directories:
         - ./target
         - /home/travis/.cargo
-before_cache:
-  - rm -rf /home/travis/.cargo/registry
 install:
   - curl https://sh.rustup.rs -sSf | sh -s -- -y
   - export PATH="$HOME/.cargo/bin:$PATH"
