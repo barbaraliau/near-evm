@@ -7,8 +7,6 @@ cache:
         - /home/travis/.cargo
 before_cache:
   - rm -rf /home/travis/.cargo/registry
-  - rm -rf ./target/wasm32-unknown-unknown
-  - rm -rf ./target/release
 install:
   - curl https://sh.rustup.rs -sSf | sh -s -- -y
   - export PATH="$HOME/.cargo/bin:$PATH"
